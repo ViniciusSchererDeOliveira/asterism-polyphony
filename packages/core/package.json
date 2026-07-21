@@ -1,6 +1,6 @@
 {
   "name": "@guitar-paradigm/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Constraint solver and music model for all-fourths guitar voicings.",
   "type": "module",

@@ -5,9 +5,9 @@
 
   **A deterministic all-fourths guitar voicing engine and visual harmonic atlas.**
 
-  `v1.0.0 · Days`
+  `v1.0.1 · Days`
 
-  [![Release](https://img.shields.io/badge/release-v1.0.0%20Days-122a91?style=flat-square)](https://github.com/ViniciusSchererDeOliveira/asterism-polyphony/releases/tag/v1.0.0)
+  [![Release](https://img.shields.io/badge/release-v1.0.1%20Days-122a91?style=flat-square)](https://github.com/ViniciusSchererDeOliveira/asterism-polyphony/releases/tag/v1.0.1)
   ![TypeScript](https://img.shields.io/badge/TypeScript-6-122a91?style=flat-square&logo=typescript&logoColor=white)
   ![React](https://img.shields.io/badge/React-19-c3911a?style=flat-square&logo=react&logoColor=white)
   ![Tuning](https://img.shields.io/badge/all--fourths-E·A·D·G·C·F-2e7d45?style=flat-square)
@@ -113,7 +113,7 @@ pnpm test:browser
 pnpm verify
 ```
 
-The `Days` snapshot passes **70 core tests**, **97 integration and SSR tests**, and **7 Chromium interaction tests**.
+The `Days` snapshot passes **70 core tests**, **98 integration and SSR tests**, and **7 Chromium interaction tests**.
 
 ## Repository map
 
@@ -144,6 +144,10 @@ The engine is also a foundation for a future tablature system: an AI model could
 ## Release note
 
 `Days` is named after the BAND-MAID song that inspired this release codename. The name marks the first public snapshot of the project; no BAND-MAID audio or artwork is included.
+
+### v1.0.1 hotfix
+
+Movement glyphs now follow the rule actually selected on the current fretboard. When a canonical Bishop route is blocked by a boundary and the engine falls back to a Rook route, the selector, fretboard, and landing card consistently render the Rook.
 
 ---
 
