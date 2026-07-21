@@ -1,0 +1,201 @@
+@media (max-width: 1280px) {
+  .codex-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .codex-controls {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .codex-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .chord-hero {
+    grid-template-columns: minmax(0, 1fr) 290px;
+  }
+}
+
+@media (max-width: 960px) {
+  .codex-header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px 18px;
+  }
+
+  .codex-brand {
+    flex: 1 1 300px;
+  }
+
+  .codex-actions {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .codex-controls {
+    flex: 1 1 100%;
+  }
+
+  .codex-workspace {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .voicings-rail {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 16px;
+    overflow: hidden;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .voicings-rail__list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .voicing-rank-card {
+    min-width: 220px;
+  }
+
+  .voicings-rail__legend {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .learning-stage {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 18px;
+  }
+
+  .fretboard-shell {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .chord-hero,
+  .board-panel,
+  .movement-score {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .movement-score__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .movement-card {
+    min-height: 160px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .movement-card--root-idle {
+    grid-column: 1;
+    grid-template-rows: auto auto auto auto;
+    align-content: start;
+    min-height: 479px;
+  }
+
+  .movement-card--travel {
+    min-height: 319px;
+  }
+
+  .movement-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .codex-brand strong {
+    white-space: normal;
+  }
+
+  .codex-actions,
+  .codex-tabs {
+    width: 100%;
+  }
+
+  .codex-icon-button,
+  .codex-tabs {
+    flex: 1;
+  }
+
+  .codex-controls {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chord-hero {
+    display: block;
+    height: auto;
+  }
+
+  .chord-hero__art {
+    height: 110px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .board-panel__heading,
+  .movement-score__heading,
+  .movement-score__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .movement-score__footer {
+    gap: 8px;
+  }
+
+  .movement-card__rules {
+    grid-template-columns: 1fr;
+  }
+
+  .movement-card__portal-map {
+    grid-template-columns: 1fr;
+  }
+
+  .movement-card__portal-map > strong {
+    white-space: normal;
+  }
+
+  .movement-card--root-idle {
+    min-height: 710px;
+  }
+
+  .movement-card--travel {
+    min-height: 539px;
+  }
+
+  .voicing-card__main {
+    grid-template-columns: 1fr auto;
+  }
+
+  .voicing-card__score {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .voicing-card__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .codex-footer {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

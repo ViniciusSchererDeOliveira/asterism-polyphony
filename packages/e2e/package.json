@@ -1,0 +1,24 @@
+{
+  "name": "@guitar-paradigm/e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integration and visual-contract tests for Asterism Polyphony.",
+  "type": "module",
+  "scripts": {
+    "test": "tsx src/runner.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@guitar-paradigm/core": "workspace:*",
+    "@guitar-paradigm/web": "workspace:*",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

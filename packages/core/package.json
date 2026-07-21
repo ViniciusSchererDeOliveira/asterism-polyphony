@@ -1,0 +1,19 @@
+{
+  "name": "@guitar-paradigm/core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Constraint solver and music model for all-fourths guitar voicings.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

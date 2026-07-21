@@ -1,0 +1,32 @@
+{
+  "name": "@guitar-paradigm/web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React interface for exploring all-fourths guitar voicings.",
+  "type": "module",
+  "main": "src/index.tsx",
+  "types": "src/index.tsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@guitar-paradigm/core": "workspace:*",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-icons": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^6.0.3",
+    "vite": "^6.0.7"
+  }
+}
