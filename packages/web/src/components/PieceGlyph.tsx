@@ -31,7 +31,7 @@ const GLYPHS: Record<DegreePiece, IconType> = {
 export function PieceGlyph({ interval, label, piece, size = 22 }: PieceGlyphProps) {
   const resolvedPiece = piece ?? degreePieceForInterval(interval);
   const Icon = GLYPHS[resolvedPiece] ?? FaChessPawn;
-  return <Icon aria-label={label} role={label ? 'img' : undefined} size={size} />;
+  return <Icon aria-label={label} data-chess-piece={resolvedPiece} role={label ? 'img' : undefined} size={size} />;
 }
 
 export function pieceName(interval: number) {

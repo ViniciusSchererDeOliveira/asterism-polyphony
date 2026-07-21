@@ -92,6 +92,7 @@ export function ChessMovesPanel({ analysis, config, hoveredIdx, pinnedIdx, onHov
   const { rootIndex, anchorIndex, anchor, allFourths } = presentation;
   if (!anchor) return null;
   const candidates = presentation.destinations;
+  const selectedPieceByIndex = new Map(candidates.map(({ index, movement }) => [index, movement.selectedRule.piece]));
   const fallback = candidates[0];
   if (!fallback) return null;
   const requestedIndex = hoveredIdx ?? pinnedIdx;
@@ -176,7 +177,7 @@ export function ChessMovesPanel({ analysis, config, hoveredIdx, pinnedIdx, onHov
               onFocus={() => onHover(index)}
               onClick={() => onPin(pinnedIdx === index ? null : index)}
             >
-              <PieceGlyph interval={role.interval} piece={index === anchorIndex ? 'king' : undefined} size={16} /> {index === anchorIndex && rootIndex < 0 ? 'A' : intervalRoman(role.interval)}
+              <PieceGlyph interval={role.interval} piece={index === anchorIndex ? 'king' : selectedPieceByIndex.get(index)} size={16} /> {index === anchorIndex && rootIndex < 0 ? 'A' : intervalRoman(role.interval)}
             </button>
           ))}
         </div>
@@ -276,8 +277,11 @@ export function ChessMovesPanel({ analysis, config, hoveredIdx, pinnedIdx, onHov
               <span className="movement-card__index">
                 03 · Voicing landing {portal?.placement === 'after-rule' ? `· ${portalId} OUT` : portal ? `· route after ${portalId} OUT` : ''}
               </span>
-              <div className={`movement-card__piece ${degreeToneClass(destination.interval, 'piece')}`}>
-                <PieceGlyph interval={destination.interval} size={32} />
+              <div
+                className={`movement-card__piece ${degreeToneClass(destination.interval, 'piece')}`}
+                data-route-piece={selected.piece}
+              >
+                <PieceGlyph interval={destination.interval} piece={selected.piece} size={32} />
               </div>
               <div>
                 <strong>{pitchedMidi(destination.note, destination.midi)} · {intervalRoman(destination.interval)}</strong>

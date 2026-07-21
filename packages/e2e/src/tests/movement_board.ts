@@ -23,6 +23,18 @@ const analysis: VoicingAnalysis = {
   pivotCount: 0
 };
 
+const boundaryFallbackAnalysis: VoicingAnalysis = {
+  chordType: 'major',
+  actualChordSymbol: 'E',
+  noteRoles: [
+    { note: 'E', role: 'root', stringIdx: 0, fret: 0, midi: 40, interval: 0, deltaString: 0, deltaFret: 0 },
+    { note: 'G#', role: 'third', stringIdx: 0, fret: 4, midi: 44, interval: 4, deltaString: 0, deltaFret: 4 }
+  ],
+  flags: [],
+  shapeId: 'rook-fallback-contract',
+  pivotCount: 0
+};
+
 function renderBoard(highlightedNoteIdx: number) {
   return renderToString(React.createElement(FretboardVisualizer, {
     config,
@@ -39,6 +51,27 @@ function renderRulebook(pinnedIdx: number) {
     config,
     hoveredIdx: null,
     pinnedIdx,
+    onHover: () => undefined,
+    onPin: () => undefined
+  }));
+}
+
+function renderBoundaryFallback(component: 'board' | 'rulebook') {
+  if (component === 'board') {
+    return renderToString(React.createElement(FretboardVisualizer, {
+      config,
+      voicing: null,
+      preset: 'worship',
+      analysis: boundaryFallbackAnalysis,
+      highlightedNoteIdx: 1
+    }));
+  }
+
+  return renderToString(React.createElement(ChessMovesPanel, {
+    analysis: boundaryFallbackAnalysis,
+    config,
+    hoveredIdx: null,
+    pinnedIdx: 1,
     onHover: () => undefined,
     onPin: () => undefined
   }));
@@ -120,6 +153,20 @@ export const movementBoardTests = [
       assert.match(rulebook, /data-boundary-fallback="nut"/);
       assert.match(rulebook, /BOUNDARY FALLBACK/);
       assert.match(rulebook, /−1 OCT/);
+    }
+  },
+  {
+    name: 'MOVEMENT_BOARD_4: Boundary fallback renders the selected Rook instead of the canonical Bishop',
+    fn: () => {
+      const board = renderBoundaryFallback('board');
+      const rulebook = renderBoundaryFallback('rulebook');
+
+      assert.match(board, /data-rule-piece="rook"/);
+      assert.match(board, /data-route-piece="rook"[^>]*>[\s\S]*?data-chess-piece="rook"/);
+      assert.match(rulebook, /data-rule-piece="rook"/);
+      assert.match(rulebook, /data-route-piece="rook"[^>]*>[\s\S]*?data-chess-piece="rook"/);
+      assert.match(rulebook, /canonical[\s\S]*?BISHOP/);
+      assert.match(rulebook, /ROOK[\s\S]*?→4/);
     }
   }
 ];

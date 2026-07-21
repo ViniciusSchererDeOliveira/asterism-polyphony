@@ -79,7 +79,7 @@ export function FretboardVisualizer({
   const fretWidth = (BOARD_WIDTH - LEFT - RIGHT) / fretCount;
   const stringGap = NECK_HEIGHT / Math.max(1, config.numStrings - 1);
   const presentation = buildMovementPresentation(analysis, config);
-  const { roles, allFourths, anchor } = presentation;
+  const { roles, allFourths, anchor, anchorIndex } = presentation;
 
   const xForFret = (fret: number) => fret === 0 ? LEFT - 32 : LEFT + (fret - 0.5) * fretWidth;
   const yForString = (stringIndex: number) => TOP + (config.numStrings - 1 - stringIndex) * stringGap;
@@ -89,6 +89,7 @@ export function FretboardVisualizer({
     destinationIndex: index,
     movement
   }));
+  const selectedPieceByIndex = new Map(presentation.destinations.map(({ index, movement }) => [index, movement.selectedRule.piece]));
   const fallbackActiveIndex = presentation.destinations[0]?.index ?? -1;
   const activeIndex = highlightedNoteIdx ?? fallbackActiveIndex;
   const portalId = 'P1';
@@ -346,12 +347,14 @@ export function FretboardVisualizer({
         {roles.map((role, index) => {
           const finger = voicing?.fingers[role.stringIdx];
           const active = activeIndex === index;
+          const piece = index === anchorIndex ? 'king' : selectedPieceByIndex.get(index);
           return (
             <button
               key={`${role.stringIdx}-${role.fret}-${role.interval}`}
               type="button"
               className={`fret-piece ${degreeToneClass(role.interval, 'piece')} ${active ? 'is-active' : ''}`}
               data-piece-tone={degreeTone(role.interval)}
+              data-route-piece={piece}
               style={{ left: `${xForFret(role.fret) / BOARD_WIDTH * 100}%`, top: `${yForString(role.stringIdx) / BOARD_HEIGHT * 100}%` }}
               aria-label={`${role.note}, ${role.role}, string ${role.stringIdx + 1}, fret ${role.fret}`}
               aria-pressed={active}
@@ -361,7 +364,7 @@ export function FretboardVisualizer({
               onBlur={() => onPieceHover?.(null)}
               onClick={() => onPiecePin?.(active ? null : index)}
             >
-              <PieceGlyph interval={role.interval} size={24} />
+              <PieceGlyph interval={role.interval} piece={piece} size={24} />
               <span>{intervalRoman(role.interval)}</span>
               {finger !== null && finger !== undefined && <small>{finger}</small>}
             </button>
