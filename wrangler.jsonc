@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "asterism-polyphony",
+  "compatibility_date": "2026-07-21",
+  "assets": {
+    "directory": "./packages/web/dist",
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    {
+      "pattern": "polyphony.vscherer.me",
+      "custom_domain": true
+    }
+  ]
+}

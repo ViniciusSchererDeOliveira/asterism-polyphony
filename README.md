@@ -12,7 +12,7 @@
   ![React](https://img.shields.io/badge/React-19-c3911a?style=flat-square&logo=react&logoColor=white)
   ![Tuning](https://img.shields.io/badge/all--fourths-E·A·D·G·C·F-2e7d45?style=flat-square)
 
-  [Watch the full-quality MP4](docs/assets/readme/days-demo.mp4)
+  [Open the live app](https://polyphony.vscherer.me) · [Watch the full-quality MP4](docs/assets/readme/days-demo.mp4)
 </div>
 
 [![Asterism Polyphony Days demo](docs/assets/readme/days-demo.gif)](docs/assets/readme/days-demo.mp4)

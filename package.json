@@ -14,7 +14,8 @@
     "verify": "pnpm verify:fast && pnpm test:browser"
   },
   "devDependencies": {
-    "@playwright/test": "^1.57.0"
+    "@playwright/test": "^1.57.0",
+    "wrangler": "4.113.0"
   },
   "engines": {
     "node": ">=22"
