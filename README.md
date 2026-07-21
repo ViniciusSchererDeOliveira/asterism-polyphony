@@ -19,6 +19,8 @@
 
 ## The idea
 
+Polyphony began as a personal learning tool. I wanted to make the guitar fretboard easier to understand and memorize, so I adopted all-fourths tuning to remove the major-third irregularity found in standard tuning. I then mapped harmonic movements to chess pieces, turning intervals and chord degrees into visual, repeatable patterns that are easier to recognize and retain.
+
 All-fourths tuning turns the fretboard into a regular lattice. Asterism Polyphony uses that regularity to search for playable chord voicings, rank them with explicit musical and physical criteria, and explain harmonic movement as geometry.
 
 The interface treats degrees like chess pieces: the root is an anchor, while thirds and fifths travel through reproducible routes across strings, frets, and octaves. The result is not a static chord dictionary, but a deterministic instrument for exploring *why* one voicing may fit better than another.
